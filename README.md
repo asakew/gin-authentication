@@ -5,6 +5,7 @@
 * Backend: goLang
 * Database: PostgreSQL + .env
 * Frontend: Gin Template, jQuery, JS, Bootstrap
+  * Login and Register pages: reCaptcha
 
 ### Features to Implement:
 1. **Login and Registration**:
