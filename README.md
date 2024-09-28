@@ -32,10 +32,10 @@
 
 ## Downloads
 ```bash
-go get github.com/gin-gonic/gin
-go get gorm.io/gorm
-go get golang.org/x/crypto/bcrypt
-go get github.com/joho/godotenv
-go get github.com/jackc/pgx/v4
-
+go get github.com/gin-gonic/gin@latest
+go get gorm.io/gorm@latest
+go get gorm.io/driver/postgres@latest
+go get golang.org/x/crypto/bcrypt@latest
+go get github.com/joho/godotenv@latest
+go get github.com/jackc/pgx/v4@latest
 ```
