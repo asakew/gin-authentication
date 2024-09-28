@@ -6,13 +6,22 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"log"
+	"os"
+	"path/filepath"
 )
 
 func Run() {
-	// Load environment variables from .env file
-	err := godotenv.Load()
+	// Calculate the absolute path for .env file
+	rootDir, err := os.Getwd()
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Fatal("Error getting current working directory:", err)
+	}
+	envPath := filepath.Join(rootDir, "config", ".env")
+
+	// Load environment variables from .env file
+	err = godotenv.Load(envPath)
+	if err != nil {
+		log.Fatalf("Error loading .env file at %s: %v", envPath, err)
 	}
 
 	// Initialize the database connection
