@@ -44,6 +44,7 @@ func Run() {
 
 	// Register routes
 	routes.HTMLRendering(r)
+	routes.SetupAuth(r)
 
 	// Start the server
 	log.Println("Server running: http://localhost:8080")
