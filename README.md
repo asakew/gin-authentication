@@ -2,8 +2,9 @@
 **Standard Go Project Layout:** https://github.com/golang-standards/project-layout/
 
 ## About
-* Backend: goLang v23
+* Backend: goLang
 * Database: PostgreSQL
+* Frontend: Gin Template, jQuery, JS, Bootstrap
 
 ## Features
 1. [ ] Login and Registration
