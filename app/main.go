@@ -39,6 +39,8 @@ func main() {
 		fmt.Println("Connected to the database successfully! 🎉")
 	}
 
+	gin.SetMode(gin.ReleaseMode) // Set gin to release mode
+
 	// Set up Gin router ---------------------------------------------------------
 	r := gin.New() // Creates a new Gin engine without default middleware
 
