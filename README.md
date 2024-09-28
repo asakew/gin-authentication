@@ -1,18 +1,17 @@
 # gin-authentication
-**Standard Go Project Layout:** https://github.com/golang-standards/project-layout
+**Standard Go Project Layout:** https://github.com/golang-standards/project-layout/
 
 ## About
 * Backend: goLang v23
 * Database: PostgreSQL
 
 ## Features
-* Login and Registration
-* Gin Authentication JWT
-* Password Hashing
-
-* User Profile
-* Session
-* Cookies
+1. [ ] Login and Registration
+2. [ ] Gin Authentication JWT
+3. [ ] Password Hashing
+4. [ ] User Profile
+5. [ ] Session
+6. [ ] Cookies
 
 ## Downloads
 ```bash
