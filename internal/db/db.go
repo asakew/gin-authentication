@@ -1,8 +1,11 @@
 package db
 
 import (
+	"appGin/internal/models"
 	"database/sql"
 	_ "github.com/jackc/pgx/v4/stdlib" // Use pgx driver for PostgreSQL
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 	"log"
 	"os"
 )
@@ -10,20 +13,24 @@ import (
 var DB *sql.DB
 
 func InitDB() {
-	var err error
-	dbURL := os.Getenv("DATABASE_URL")
+	// Fetch the database connection string from environment variables
+	dsn := os.Getenv("DATABASE_URL") // Make sure the DATABASE_URL environment variable is set
+	if dsn == "" {
+		log.Fatal("DATABASE_URL environment variable is not set")
+	}
 
-	DB, err = sql.Open("pgx", dbURL)
+	// Initialize the database connection
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Fatal("Error connecting to the database:", err)
+		log.Fatalf("Failed to connect to the database: %v", err)
 	}
 
-	// Check if the connection is established
-	if err := DB.Ping(); err != nil {
-		log.Fatal("Cannot connect to DB:", err)
-	} else {
-		log.Println("Connected to the database successfully!")
+	// AutoMigrate the User model
+	if err := db.AutoMigrate(&models.Users{}); err != nil {
+		log.Fatalf("Failed to auto-migrate the User model: %v", err)
 	}
+
+	log.Println("Database migrated successfully!")
 }
 
 func CloseDB() {
