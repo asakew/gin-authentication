@@ -39,13 +39,3 @@ go get github.com/joho/godotenv
 go get github.com/jackc/pgx/v4
 
 ```
-
----------------
-
-1. [ ] Email Verification
-2. [ ] Reset Password
-3. [ ] Forgot Password
-4. [ ] Change Password
-5. [ ] Change Email
-6. [ ] Change Username
-7. [ ] Change Profile Picture
