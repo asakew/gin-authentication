@@ -43,7 +43,7 @@ func Run() {
 	r.Use(gin.Recovery()) // Use Recovery middleware
 
 	// Register routes
-	routes.TemplatesRoutes(r)
+	routes.HTMLRendering(r)
 
 	// Start the server
 	log.Println("Server running: http://localhost:8080")
