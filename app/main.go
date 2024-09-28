@@ -63,6 +63,7 @@ func main() {
 	})
 
 	// Start the server
+	log.Println("Server running: http://localhost:8080")
 	if err := r.Run(":8080"); err != nil {
 		log.Fatal("Failed to run the server:", err)
 	}
