@@ -11,6 +11,11 @@ import (
 )
 
 func Run() {
+	gin.SetMode(gin.ReleaseMode) // Set gin to release mode
+
+	// Set up Gin router
+	r := gin.New() // Creates a new Gin engine without default middleware
+
 	// Calculate the absolute path for .env file
 	rootDir, err := os.Getwd()
 	if err != nil {
@@ -27,11 +32,6 @@ func Run() {
 	// Initialize the database connection
 	db.InitDB()
 	defer db.CloseDB()
-
-	gin.SetMode(gin.ReleaseMode) // Set gin to release mode
-
-	// Set up Gin router
-	r := gin.New() // Creates a new Gin engine without default middleware
 
 	// Set trusted proxies (replace with actual IPs of your trusted proxies)
 	err = r.SetTrustedProxies([]string{"10.0.0.0/8", "192.168.1.1"})
