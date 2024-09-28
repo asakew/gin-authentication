@@ -30,7 +30,7 @@
     - Responsive UI using Bootstrap.
     - AJAX calls using jQuery for a smoother user experience.
 
-## Downloads
+## Commands for Downloads
 ```bash
 go get github.com/gin-gonic/gin@latest
 go get gorm.io/gorm@latest
@@ -38,4 +38,8 @@ go get gorm.io/driver/postgres@latest
 go get golang.org/x/crypto/bcrypt@latest
 go get github.com/joho/godotenv@latest
 go get github.com/jackc/pgx/v4@latest
+```
+
+```bash
+go mod tidy
 ```
