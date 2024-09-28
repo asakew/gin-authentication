@@ -42,12 +42,18 @@ func main() {
 	// Set up Gin router ---------------------------------------------------------
 	r := gin.New() // Creates a new Gin engine without default middleware
 
+	// Set trusted proxies (replace with actual IPs of your trusted proxies)
+	err = r.SetTrustedProxies([]string{"10.0.0.0/8", "192.168.1.1"})
+	if err != nil {
+		return
+	}
+
 	r.Use(gin.Logger())   // Use Logger middleware
 	r.Use(gin.Recovery()) // Use Recovery middleware
 
 	// Serve static files
-	r.Static("/css", "./static/css")
-	r.Static("/js", "./static/js")
+	r.Static("/css", "/static/css")
+	r.Static("/js", "/static/js")
 
 	// Render HTML template
 	r.LoadHTMLGlob("templates/*")
