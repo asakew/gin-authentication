@@ -52,8 +52,8 @@ func main() {
 	r.Use(gin.Recovery()) // Use Recovery middleware
 
 	// Serve static files
-	r.Static("/css", "/static/css")
-	r.Static("/js", "/static/js")
+	r.Static("/css", "./static/css")
+	r.Static("/js", "./static/js")
 
 	// Render HTML template
 	r.LoadHTMLGlob("templates/*")
