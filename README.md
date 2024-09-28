@@ -39,6 +39,8 @@ go get gorm.io/driver/postgres@latest
 go get golang.org/x/crypto/bcrypt@latest
 go get github.com/joho/godotenv@latest
 go get github.com/jackc/pgx/v4@latest
+go get -u github.com/gin-gonic/contrib/sessions@latest
+
 ```
 
 ```bash
