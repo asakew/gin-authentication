@@ -23,5 +23,10 @@ go get golang.org/x/crypto/bcrypt
 
 ---------------
 
-* Email Verification
-* Reset Password
+1. [ ] Email Verification
+2. [ ] Reset Password
+3. [ ] Forgot Password
+4. [ ] Change Password
+5. [ ] Change Email
+6. [ ] Change Username
+7. [ ] Change Profile Picture
