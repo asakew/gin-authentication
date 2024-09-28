@@ -3,7 +3,7 @@
 
 ## About
 * Backend: goLang
-* Database: PostgreSQL
+* Database: PostgreSQL + .env
 * Frontend: Gin Template, jQuery, JS, Bootstrap
 
 ### Features to Implement:
@@ -35,6 +35,9 @@
 go get github.com/gin-gonic/gin
 go get gorm.io/gorm
 go get golang.org/x/crypto/bcrypt
+go get github.com/joho/godotenv
+go get github.com/jackc/pgx/v4
+
 ```
 
 ---------------
