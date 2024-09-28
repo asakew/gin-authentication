@@ -36,7 +36,7 @@ func main() {
 	if err := db.Ping(); err != nil {
 		log.Fatal("Cannot connect to DB:", err)
 	} else {
-		fmt.Println("Connected to the database successfully! 🎉")
+		fmt.Println("Connected to the database successfully!")
 	}
 
 	gin.SetMode(gin.ReleaseMode) // Set gin to release mode
@@ -54,11 +54,11 @@ func main() {
 	r.Use(gin.Recovery()) // Use Recovery middleware
 
 	// Serve static files
-	r.Static("/css", "./static/css")
-	r.Static("/js", "./static/js")
+	r.Static("/css", "./web/assets/css")
+	r.Static("/js", "./web/assets/js")
 
 	// Render HTML template
-	r.LoadHTMLGlob("templates/*")
+	r.LoadHTMLGlob("web/templates/*")
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
