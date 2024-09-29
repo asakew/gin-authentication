@@ -46,3 +46,8 @@ go get -u github.com/gin-gonic/contrib/sessions@latest
 ```bash
 go mod tidy
 ```
+
+## Command to Run
+```bash
+go run cmd/app/main.go
+```
