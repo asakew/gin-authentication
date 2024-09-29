@@ -44,7 +44,7 @@ func Run() {
 
 	// Register routes
 	routes.HTMLRendering(r)
-	routes.SetupAuth(r)
+	//routes.SetupAuth(r) + verifyRecaptcha.go
 
 	// Start the server
 	log.Println("Server running: http://localhost:8080")
