@@ -25,3 +25,4 @@ go.work.sum
 .env
 go.sum
 kew.md
+.DS_Store
