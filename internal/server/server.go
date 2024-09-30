@@ -21,7 +21,7 @@ func Run() {
 	if err != nil {
 		log.Fatal("Error getting current working directory:", err)
 	}
-	envPath := filepath.Join(rootDir, "config", ".env")
+	envPath := filepath.Join(rootDir, "internal/config/", ".env")
 
 	// Load environment variables from .env file
 	err = godotenv.Load(envPath)
