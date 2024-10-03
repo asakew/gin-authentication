@@ -1,40 +1,31 @@
 package db
 
 import (
-	"appGin/internal/models"
-	"database/sql"
-	_ "github.com/jackc/pgx/v4/stdlib" // Use pgx driver for PostgreSQL
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
+	"context"
+	"github.com/go-redis/redis/v8"
+	"github.com/jackc/pgx/v4"
 	"log"
-	"os"
 )
 
-var DB *sql.DB
+var (
+	PostgresConn *pgx.Conn
+	RedisClient  *redis.Client
+)
 
-func InitDB() {
-	// Fetch the database connection string from environment variables
-	dsn := os.Getenv("DATABASE_URL") // Make sure the DATABASE_URL environment variable is set
-	if dsn == "" {
-		log.Fatal("DATABASE_URL environment variable is not set")
-	}
-
-	// Initialize the database connection
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+func InitPostgres(connString string) {
+	var err error
+	PostgresConn, err = pgx.Connect(context.Background(), connString)
 	if err != nil {
-		log.Fatalf("Failed to connect to the database: %v", err)
+		log.Fatalf("Unable to connect to database: %v\n", err)
 	}
-
-	// AutoMigrate the User model
-	if err := db.AutoMigrate(&models.Users{}); err != nil {
-		log.Fatalf("Failed to auto-migrate the User model: %v", err)
-	}
-
-	log.Println("Database migrated successfully!")
+	log.Println("Connected to PostgreSQL!")
 }
 
-func CloseDB() {
-	if err := DB.Close(); err != nil {
-		log.Fatal("Error closing the database connection:", err)
+func InitRedis(opts *redis.Options) {
+	RedisClient = redis.NewClient(opts)
+	_, err := RedisClient.Ping(context.Background()).Result()
+	if err != nil {
+		log.Fatalf("Could not connect to Redis: %v\n", err)
 	}
+	log.Println("Connected to Redis!")
 }
