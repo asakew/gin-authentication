@@ -3,9 +3,9 @@
 
 ## About
 * Backend: goLang
-* Database: PostgreSQL + .env
+* Database: PostgreSQL + (not use: .env)
 * Frontend: Gin Template, jQuery, JS, Bootstrap
-  * Login and Register pages: reCaptcha
+  * Login and Register pages
 
 ### Features to Implement:
 1. **Login and Registration**:
@@ -34,12 +34,8 @@
 ## Commands for Downloads
 ```bash
 go get github.com/gin-gonic/gin@latest
-go get gorm.io/gorm@latest
-go get gorm.io/driver/postgres@latest
-go get golang.org/x/crypto/bcrypt@latest
-go get github.com/joho/godotenv@latest
-go get github.com/jackc/pgx/v4@latest
-go get -u github.com/gin-gonic/contrib/sessions@latest
+go get github.com/jackc/pgx/v4
+go get github.com/go-redis/redis/v8
 
 ```
 
