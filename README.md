@@ -7,7 +7,7 @@
 * Frontend: Gin Template, jQuery, JS, Bootstrap
   * Login and Register pages
 
-### Features to Implement:
+### Features:
 1. **Login and Registration**:
     - Form validation (both server-side and client-side).
     - Password hashing (using bcrypt).
