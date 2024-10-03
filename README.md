@@ -3,7 +3,7 @@
 
 ## About
 * Backend: goLang
-* Database: PostgreSQL + (not use: .env)
+* Database: PostgreSQL + .env
 * Frontend: Gin Template, jQuery, JS, Bootstrap
   * Login and Register pages
 
