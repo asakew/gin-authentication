@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	// Set up database
 	config.InitDB()
 	config.InitRedis()
 	repo.DB = config.DB
