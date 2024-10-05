@@ -1,31 +1,33 @@
-package db
+package config
 
 import (
-	"context"
-	"github.com/go-redis/redis/v8"
-	"github.com/jackc/pgx/v4"
+	"fmt"
 	"log"
+
+	"github.com/joho/godotenv"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
+	"os"
 )
 
-var (
-	PostgresConn *pgx.Conn
-	RedisClient  *redis.Client
-)
+var UserDB *gorm.DB
 
-func InitPostgres(connString string) {
-	var err error
-	PostgresConn, err = pgx.Connect(context.Background(), connString)
+func InitPostgres() {
+	err := godotenv.Load()
 	if err != nil {
-		log.Fatalf("Unable to connect to database: %v\n", err)
+		log.Fatal("Error loading .env file")
 	}
-	log.Println("Connected to PostgreSQL!")
-}
 
-func InitRedis(opts *redis.Options) {
-	RedisClient = redis.NewClient(opts)
-	_, err := RedisClient.Ping(context.Background()).Result()
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+		os.Getenv("DB_HOST"),
+		os.Getenv("DB_USER"),
+		os.Getenv("DB_PASSWORD"),
+		os.Getenv("DB_NAME"),
+		os.Getenv("DB_PORT"),
+	)
+
+	UserDB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Fatalf("Could not connect to Redis: %v\n", err)
+		log.Fatal("Failed to connect to database")
 	}
-	log.Println("Connected to Redis!")
 }
