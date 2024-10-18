@@ -1,6 +1,7 @@
 # gin-authentication
 Standard Go Project Layout: https://github.com/golang-standards/project-layout/
 
+## Google OAuth2 Authentication in Golang v1:
 - Backend: goLang + gin + gorilla/mux + JWT token
 - Database: PostgreSQL + GORM + .env file
 
