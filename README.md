@@ -17,6 +17,10 @@ go get gorm.io/driver/postgres
 go get github.com/joho/godotenv
 ```
 
+```bash
+go mod tidy # for go mod tidy
+```
+
 ## Configuration: .env File
 Create a .env file:
 ```env
