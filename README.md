@@ -11,7 +11,8 @@ ________________________________________________________________
 go get github.com/gin-gonic/gin
 go get github.com/gorilla/mux
 go get github.com/dgrijalva/jwt-go
-go get github.com/lib/pq
+go get gorm.io/gorm
+go get gorm.io/driver/postgres
 go get github.com/joho/godotenv
 ```
 
