@@ -17,8 +17,10 @@ go get gorm.io/driver/postgres
 go get github.com/joho/godotenv
 ```
 
+### Update all modules:
 ```bash
-go mod tidy # for go mod tidy
+go get -u
+go mod tidy
 ```
 
 ## Configuration: .env File
